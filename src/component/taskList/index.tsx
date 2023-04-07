@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Text,
@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Modal,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../store';
@@ -14,12 +15,31 @@ import {deleteTask} from '../../store/taskSlice';
 import Task from '../../types/taskType';
 import styles from './styles';
 const TaskList = () => {
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
+
   const dispatch = useDispatch();
   const tasks = useSelector((state: RootState) => state.task);
 
-  const handleDeleteTask = (taskId: number) => {
-    dispatch(deleteTask(taskId));
+  const handleDeleteTask = (task: Task) => {
+    setTaskToDelete(task);
+    setShowConfirmationModal(true);
   };
+  const handleDeleteConfirmation = () => {
+    if (taskToDelete) {
+      dispatch(deleteTask(taskToDelete.id));
+      setTaskToDelete(null);
+      setShowConfirmationModal(false);
+    }
+  };
+  const handleConfirmationModalDismiss = () => {
+    setTaskToDelete(null);
+    setShowConfirmationModal(false);
+  };
+
+  // const handleDeleteTask = (taskId: number) => {
+  //   dispatch(deleteTask(taskId));
+  // };
 
   const renderItem = ({item}: {item: Task}) => (
     <ScrollView>
@@ -34,7 +54,7 @@ const TaskList = () => {
           elevation: 1,
         }}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity onPress={() => handleDeleteTask(item.id)}>
+          <TouchableOpacity onPress={() => handleDeleteTask(item)}>
             <Image
               source={require('../../utils/images/d.png')}
               style={{
@@ -68,11 +88,27 @@ const TaskList = () => {
   );
 
   return (
-    <FlatList
-      data={tasks.tasks}
-      renderItem={renderItem}
-      keyExtractor={item => item.id.toString()}
-    />
+    <>
+      <FlatList
+        data={tasks.tasks}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+      />
+      <Modal
+        visible={showConfirmationModal}
+        onRequestClose={handleConfirmationModalDismiss}
+        transparent={true}>
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalText}>
+            Are you sure you want to delete this task?
+          </Text>
+          <View style={styles.modalButtonsContainer}>
+            <Button title="Cancel" onPress={handleConfirmationModalDismiss} />
+            <Button title="Delete" onPress={handleDeleteConfirmation} />
+          </View>
+        </View>
+      </Modal>
+    </>
   );
 };
 

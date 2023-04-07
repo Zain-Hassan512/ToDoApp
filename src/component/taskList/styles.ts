@@ -38,6 +38,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {color: '#fff', fontWeight: '500'},
+  modalContainer: {
+    //backgroundColor: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    borderRadius: 10,
+    padding: 20,
+    marginHorizontal: 50,
+    marginVertical: 150,
+    //height: '30%',
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 20,
+    color: 'white',
+  },
+  modalButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });
 
 export default styles;

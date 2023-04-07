@@ -6,6 +6,8 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {useDispatch} from 'react-redux';
@@ -24,7 +26,9 @@ const AddTaskModal: React.FC<AddTaskProps> = ({visible, onClose}) => {
   const [priority, setPriority] = useState<'high' | 'medium' | 'low'>('low');
 
   const dispatch = useDispatch();
-
+  const dismissKeyboard = () => {
+    Keyboard.dismiss();
+  };
   const handleAddTask = () => {
     const task: Task = {
       id: Date.now(),
@@ -66,18 +70,20 @@ const AddTaskModal: React.FC<AddTaskProps> = ({visible, onClose}) => {
             </Picker>
           </View>
         </View>
-
-        <View style={styles.noteInput}>
-          <Text style={styles.label}>Note:</Text>
-          <TextInput
-            style={styles.noteInput}
-            placeholder="Enter Note"
-            value={note}
-            onChangeText={setNote}
-            multiline={true}
-            numberOfLines={4}
-          />
-        </View>
+        <TouchableWithoutFeedback onPress={dismissKeyboard}>
+          <View style={styles.noteInput}>
+            <Text style={styles.label}>Note:</Text>
+            <TextInput
+              style={styles.noteInput}
+              placeholder="Enter Note"
+              value={note}
+              onChangeText={setNote}
+              multiline={true}
+              numberOfLines={4}
+              returnKeyType="done"
+            />
+          </View>
+        </TouchableWithoutFeedback>
 
         <TouchableOpacity style={styles.addItemButton} onPress={handleAddTask}>
           <Text style={styles.buttonText}>Add Task</Text>

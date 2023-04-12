@@ -1,6 +1,5 @@
-export {default as Header} from './header/index';
-export {default as AddTask} from './addTask/index';
-export {default as TaskList} from './taskList/index';
-export {default as RoundButton} from './roundButton/index';
-export {default as addTaskModal} from './addTaskModal/index';
-export {default as EditTaskModal} from './edit/index';
+export {default as Header} from './header';
+export {default as RoundButton} from './roundButton';
+export {default as DetailsModal} from './detailmodal';
+export {default as ConfirmationModal} from './confrimationmodal';
+export {default as TaskCard} from './card';

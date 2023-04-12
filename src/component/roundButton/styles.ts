@@ -12,10 +12,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 2,
   },
-  text: {
-    color: '#333',
-    fontSize: 20,
-    fontWeight: 'bold',
+  icon: {
+    width: 40,
+    height: 40,
   },
 });
 export default styles;

@@ -33,11 +33,10 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
           <Text style={styles.modalTitle}>{task.title}</Text>
           <View style={styles.modalLine} />
           <Text style={styles.modalNote}>{task.note}</Text>
-          <Text style={[styles.modalPriority, getPriorityColor(task.priority)]}>
-            {task.priority}
-            {task.id}
-          </Text>
           <View style={styles.modalLine} />
+          <Text style={[styles.modalPriority, getPriorityColor(task.priority)]}>
+            {task.priority.toLocaleUpperCase()}
+          </Text>
           <View style={styles.modalButtonContainer}>
             <Button title="Close" onPress={onDismiss} />
           </View>

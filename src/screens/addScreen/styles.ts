@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     alignSelf: 'center',
     padding: 20,
@@ -40,9 +40,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   label: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    //backgroundColor: 'red',
+    width: '90%',
+    alignSelf: 'center',
+    color: 'black',
   },
   pickerContainer: {
     borderWidth: 1,
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     padding: 20, // add padding to the TextInput
     textAlignVertical: 'top', // align text to top
+    height: '40%',
   },
   noteInputLabel: {
     fontSize: 16,
@@ -85,13 +90,12 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 4,
     margin: 5,
-    bottom: 20,
-    position: 'absolute',
     alignSelf: 'center',
     width: '90%',
+    marginTop: 'auto',
   },
   buttonText: {
-    color: '#000000',
+    color: '#FFFFFF',
     fontSize: 16,
     textAlign: 'center',
   },

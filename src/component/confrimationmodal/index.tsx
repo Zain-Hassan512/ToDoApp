@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View, Modal, StyleSheet, Button} from 'react-native';
+import {Text, View, StyleSheet, Button} from 'react-native';
 import styles from './style';
+import Modal from 'react-native-modal';
 interface ConfirmationModalProps {
   visible: boolean;
   onDismiss: () => void;
@@ -18,17 +19,36 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
     onDelete(taskId);
   };
   return (
-    <Modal visible={visible} onRequestClose={onDismiss} transparent={true}>
-      <View style={styles.modalContainer}>
-        <Text style={styles.modalText}>
-          Are you sure you want to delete this task?
-        </Text>
-        <View style={styles.modalButtonsContainer}>
-          <Button title="Cancel" onPress={onDismiss} />
-          <Button title="Delete" onPress={() => onDelete(taskId)} />
+    <View
+      style={{
+        alignSelf: 'center',
+        alignItems: 'center',
+        width: '100%',
+        backgroundColor: 'red',
+        alignContent: 'center',
+        justifyContent: 'center',
+      }}>
+      <Modal
+        isVisible={visible}
+        onBackButtonPress={onDismiss}
+        //transparent={true}
+        style={{
+          alignSelf: 'center',
+          alignItems: 'center',
+          width: '100%',
+        }}
+        onBackdropPress={onDismiss}>
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalText}>
+            Are you sure you want to delete this task?
+          </Text>
+          <View style={styles.modalButtonsContainer}>
+            <Button title="Cancel" onPress={onDismiss} />
+            <Button title="Delete" onPress={() => onDelete(taskId)} />
+          </View>
         </View>
-      </View>
-    </Modal>
+      </Modal>
+    </View>
   );
 };
 

@@ -5,9 +5,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
     borderRadius: 10,
     padding: 20,
-    marginHorizontal: 50,
-    marginVertical: 150,
+    //marginHorizontal: 50,
+    //marginVertical: 150,
     //height: '30%',
+    width: '70%',
   },
   modalText: {
     fontSize: 18,

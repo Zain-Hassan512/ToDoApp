@@ -44,7 +44,15 @@ const MyCheckBoxPicker: React.FC<MyCheckBoxPickerProps> = ({
               },
             ]}
             onPress={() => handleOptionClick(option.value)}>
-            <Text style={styles.checkboxLabel}>{option.label}</Text>
+            <Text
+              style={[
+                styles.checkboxLabel,
+                {
+                  color: selectedValue === option.value ? '#FFFFFF' : '#000000',
+                },
+              ]}>
+              {option.label}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -57,29 +65,30 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   label: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    width: '90%',
+    alignSelf: 'center',
+    color: 'black',
   },
   checkboxContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    //flexWrap: 'wrap',
     width: '90%',
     alignSelf: 'center',
-    paddingLeft: '7%',
     marginTop: 10,
   },
   checkbox: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#D3D3D3',
     borderRadius: 8,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 6,
     marginRight: 10,
     marginBottom: 10,
+    width: '31%',
   },
   selected: {
     backgroundColor: 'grey',

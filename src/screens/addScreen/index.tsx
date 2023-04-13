@@ -75,13 +75,12 @@ const AddTaskScreen = ({
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.form}>
+    <View style={styles.form}>
       <View
         style={{
           alignContent: 'center',
           flexDirection: 'row',
           alignItems: 'center',
-          //justifyContent: 'center',
         }}>
         <TouchableOpacity
           onPress={() => {
@@ -125,13 +124,12 @@ const AddTaskScreen = ({
           returnKeyType="done"
         />
       </View>
-
       <TouchableOpacity style={styles.addItemButton} onPress={handleAddTask}>
         <Text style={styles.buttonText}>
           {task ? 'Save Changes' : 'Add Task'}
         </Text>
       </TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 };
 

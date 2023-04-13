@@ -36,9 +36,12 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
   return (
     <>
       <ScrollView>
-        <TouchableOpacity onPress={() => setShowDetailsModal(true)}>
+        <TouchableOpacity
+          onPress={() => setShowDetailsModal(true)}
+          activeOpacity={0.9}>
           <View style={styles.container}>
             <View style={{flexDirection: 'row'}}>
+              <Text style={styles.heading}>{task.title}</Text>
               <TouchableOpacity
                 onPress={() => {
                   setShowConfirmationModal(true);
@@ -55,12 +58,13 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
                 />
               </TouchableOpacity>
             </View>
-            <Text style={styles.heading}>{task.title}</Text>
-            <Text numberOfLines={2} style={styles.note}>
+
+            <Text numberOfLines={3} style={styles.note}>
               {task.note}
             </Text>
+            <View style={styles.modalLine} />
             <Text style={[styles.priority, getPriorityColor(task.priority)]}>
-              {task.priority}
+              {task.priority.toLocaleUpperCase()}
             </Text>
           </View>
         </TouchableOpacity>

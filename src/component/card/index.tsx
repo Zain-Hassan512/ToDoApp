@@ -1,14 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Modal,
-  StyleSheet,
-  Button,
-} from 'react-native';
+import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import Task from '../../types/taskType';
 import styles from './style';
 import DetailsModal from '../detailmodal';
@@ -17,25 +8,16 @@ import {useDispatch} from 'react-redux';
 import {deleteTask} from '../../store/taskSlice';
 interface TaskCardProps {
   task: Task;
-  onDelete: () => void;
-  onEdit: () => void;
-  onDetails: () => void;
   onPressEdit(): void;
 }
 
-const TaskCard: React.FC<TaskCardProps> = ({
-  task,
-  onDelete,
-  onEdit,
-  onPressEdit,
-}) => {
+const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const dispatch = useDispatch();
   const handleDeleteConfirmation = (id: number) => {
     dispatch(deleteTask(id));
     setShowConfirmationModal(false);
-    onDelete();
   };
 
   const getPriorityColor = (priority: string) => {

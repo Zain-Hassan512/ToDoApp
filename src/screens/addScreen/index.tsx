@@ -9,6 +9,7 @@ import {
   Keyboard,
   ScrollView,
   Image,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {useDispatch} from 'react-redux';
@@ -17,7 +18,17 @@ import Task from '../../types/taskType';
 import styles from './styles';
 import ScreenNames from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import MyCheckBoxPicker from '../../component/customCheckBox';
 
+interface Option {
+  label: string;
+  value: string;
+}
+const priorityOptions: Option[] = [
+  {label: 'Low', value: 'low'},
+  {label: 'Medium', value: 'medium'},
+  {label: 'High', value: 'high'},
+];
 type Params = {
   Screen: {
     task?: Task;
@@ -34,7 +45,6 @@ const AddTaskScreen = ({
     task?.priority || 'low',
   );
   const dispatch = useDispatch();
-
   const handleAddTask = () => {
     const newTask: Task = {
       id: task?.id || Date.now(),
@@ -60,6 +70,9 @@ const AddTaskScreen = ({
       setPriority(task.priority);
     }
   }, [task]);
+  const handlePriorityChange = (selectedValue: string) => {
+    setPriority(selectedValue as 'high' | 'medium' | 'low');
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.form}>
@@ -68,6 +81,7 @@ const AddTaskScreen = ({
           alignContent: 'center',
           flexDirection: 'row',
           alignItems: 'center',
+          //justifyContent: 'center',
         }}>
         <TouchableOpacity
           onPress={() => {
@@ -84,8 +98,8 @@ const AddTaskScreen = ({
         </TouchableOpacity>
         <Text style={styles.title}>{task ? 'Edit Task' : 'Add New Task'}</Text>
       </View>
-      <View style={styles.input}>
-        <Text style={styles.label}>Title:</Text>
+      <View style={{marginTop: 20}}>
+        <Text style={styles.label}>Title</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Title"
@@ -93,26 +107,17 @@ const AddTaskScreen = ({
           onChangeText={setTitle}
         />
       </View>
+      <MyCheckBoxPicker
+        options={priorityOptions}
+        onSelectionChange={handlePriorityChange}
+        defaultValue={priority}
+      />
 
-      <View style={styles.input}>
-        <Text style={styles.label}>Priority:</Text>
-        <View style={styles.pickerContainer}>
-          <Picker
-            selectedValue={priority}
-            onValueChange={value => setPriority(value)}
-            style={styles.picker}>
-            <Picker.Item label="High" value="high" />
-            <Picker.Item label="Medium" value="medium" />
-            <Picker.Item label="Low" value="low" />
-          </Picker>
-        </View>
-      </View>
-
-      <View style={styles.noteInput}>
-        <Text style={styles.label}>Note:</Text>
+      <View style={{marginTop: 20}}>
+        <Text style={styles.label}>Note</Text>
         <TextInput
           style={styles.noteInput}
-          placeholder="Enter Note"
+          placeholder="Type your notes here..."
           value={note}
           onChangeText={setNote}
           multiline={true}

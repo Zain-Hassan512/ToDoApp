@@ -35,6 +35,7 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
           <Text style={styles.modalNote}>{task.note}</Text>
           <Text style={[styles.modalPriority, getPriorityColor(task.priority)]}>
             {task.priority}
+            {task.id}
           </Text>
           <View style={styles.modalLine} />
           <View style={styles.modalButtonContainer}>

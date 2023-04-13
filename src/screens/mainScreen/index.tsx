@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from 'react-native';
 import Header from '../../component/header/index';
 import {useSelector} from 'react-redux';
@@ -39,21 +40,19 @@ const MainScreen: React.FC<AddTaskProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title="TODO APP" />
-
-      <View style={styles.contentWrapper}>
-        {task.tasks.map(task => (
-          <TaskCard
-            key={task.id}
-            task={task}
-            onDelete={() => handleDeleteTask(task.id)}
-            onEdit={() => handleEditTask(task.id)}
-            onDetails={() => handleDetailsTask(task.id)}
-            onPressEdit={() => {
-              navigation.navigate(ScreenNames.ADD, {task});
-            }}
-          />
-        ))}
-      </View>
+      <ScrollView>
+        <View style={styles.contentWrapper}>
+          {task.tasks.map(task => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              onPressEdit={() => {
+                navigation.navigate(ScreenNames.ADD, {task});
+              }}
+            />
+          ))}
+        </View>
+      </ScrollView>
       <RoundButton
         onPress={() => {
           navigation.navigate(ScreenNames.ADD, {});

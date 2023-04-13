@@ -42,9 +42,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginTop: 10,
     borderRadius: 10,
-    elevation: 2,
+    elevation: 4,
     padding: 12,
-    marginBottom: 5,
+    marginBottom: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
   },
 });
 

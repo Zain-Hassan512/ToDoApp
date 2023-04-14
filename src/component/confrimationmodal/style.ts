@@ -1,5 +1,18 @@
 import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
+  viewContainer: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    width: '100%',
+    backgroundColor: 'red',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  modalStyle: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
   modalContainer: {
     //backgroundColor: 'white',
     backgroundColor: 'rgba(0, 0, 0, 0.8)',

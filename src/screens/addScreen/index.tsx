@@ -75,61 +75,65 @@ const AddTaskScreen = ({
   };
 
   return (
-    <View style={styles.form}>
-      <View
-        style={{
-          alignContent: 'center',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          onPress={() => {
-            //@ts-ignore
-            navigation.navigate(ScreenNames.MAIN);
+    <>
+      <View style={styles.form}>
+        <View
+          style={{
+            alignContent: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
           }}>
-          <Image
-            source={require('../../utils/images/back.png')}
-            style={{
-              width: 30,
-              height: 30,
-            }}
+          <TouchableOpacity
+            onPress={() => {
+              //@ts-ignore
+              navigation.navigate(ScreenNames.MAIN);
+            }}>
+            <Image
+              source={require('../../utils/images/back.png')}
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+          </TouchableOpacity>
+          <Text style={styles.title}>
+            {task ? 'Edit Task' : 'Add New Task'}
+          </Text>
+        </View>
+        <View style={{marginTop: 20}}>
+          <Text style={styles.label}>Title</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter Title"
+            value={title}
+            onChangeText={setTitle}
           />
-        </TouchableOpacity>
-        <Text style={styles.title}>{task ? 'Edit Task' : 'Add New Task'}</Text>
-      </View>
-      <View style={{marginTop: 20}}>
-        <Text style={styles.label}>Title</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Title"
-          value={title}
-          onChangeText={setTitle}
+        </View>
+        <MyCheckBoxPicker
+          options={priorityOptions}
+          onSelectionChange={handlePriorityChange}
+          defaultValue={priority}
         />
-      </View>
-      <MyCheckBoxPicker
-        options={priorityOptions}
-        onSelectionChange={handlePriorityChange}
-        defaultValue={priority}
-      />
 
-      <View style={{marginTop: 20}}>
-        <Text style={styles.label}>Note</Text>
-        <TextInput
-          style={styles.noteInput}
-          placeholder="Type your notes here..."
-          value={note}
-          onChangeText={setNote}
-          multiline={true}
-          numberOfLines={4}
-          returnKeyType="done"
-        />
+        <View style={{marginTop: 20}}>
+          <Text style={styles.label}>Note</Text>
+          <TextInput
+            style={styles.noteInput}
+            placeholder="Type your notes here..."
+            value={note}
+            onChangeText={setNote}
+            multiline={true}
+            numberOfLines={4}
+            returnKeyType="done"
+          />
+        </View>
+        <TouchableOpacity style={styles.addItemButton} onPress={handleAddTask}>
+          <Text style={styles.buttonText}>
+            {task ? 'Save Changes' : 'Add Task'}
+          </Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.addItemButton} onPress={handleAddTask}>
-        <Text style={styles.buttonText}>
-          {task ? 'Save Changes' : 'Add Task'}
-        </Text>
-      </TouchableOpacity>
-    </View>
+    </>
   );
 };
 

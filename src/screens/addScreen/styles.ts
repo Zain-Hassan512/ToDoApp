@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   form: {
     flex: 1,
-    padding: 10,
+    //padding: 10,
     backgroundColor: '#fff',
   },
   heading: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     padding: 20, // add padding to the TextInput
     textAlignVertical: 'top', // align text to top
-    height: '40%',
+    //height: '40%',
   },
   noteInputLabel: {
     fontSize: 16,
@@ -82,17 +82,20 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 4,
     padding: 10,
-    height: 100,
+    //height: 100,
     backgroundColor: '#F2F2F2',
   },
   addItemButton: {
     backgroundColor: '#2196F3',
     padding: 16,
     borderRadius: 4,
-    margin: 5,
+    //margin: 5,
     alignSelf: 'center',
     width: '90%',
-    marginTop: 'auto',
+    marginTop: 220,
+    //bottom: 5,
+    //position: 'absolute',
+    //marginBottom: 50,
   },
   buttonText: {
     color: '#FFFFFF',

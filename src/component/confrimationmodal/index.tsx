@@ -19,24 +19,11 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
     onDelete(taskId);
   };
   return (
-    <View
-      style={{
-        alignSelf: 'center',
-        alignItems: 'center',
-        width: '100%',
-        backgroundColor: 'red',
-        alignContent: 'center',
-        justifyContent: 'center',
-      }}>
+    <View style={styles.viewContainer}>
       <Modal
         isVisible={visible}
         onBackButtonPress={onDismiss}
-        //transparent={true}
-        style={{
-          alignSelf: 'center',
-          alignItems: 'center',
-          width: '100%',
-        }}
+        style={styles.modalStyle}
         onBackdropPress={onDismiss}>
         <View style={styles.modalContainer}>
           <Text style={styles.modalText}>

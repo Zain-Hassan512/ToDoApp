@@ -1,16 +1,18 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  form: {
+  container: {
     flex: 1,
-    //padding: 10,
     backgroundColor: '#fff',
   },
-  heading: {
+  innercontainer: {
+    alignContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+  },
+  backimg: {
+    width: 30,
+    height: 30,
   },
   title: {
     fontSize: 20,
@@ -19,16 +21,7 @@ const styles = StyleSheet.create({
     padding: 20,
     color: 'black',
   },
-  closeButton: {
-    backgroundColor: '#ccc',
-    padding: 10,
-    borderRadius: 4,
-    alignItems: 'center',
-  },
-  closeButtonText: {
-    color: '#fff',
-    fontSize: 16,
-  },
+
   input: {
     padding: 10,
     borderColor: 'rgba(0, 0, 0, 0.2)',
@@ -43,22 +36,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
-    //backgroundColor: 'red',
     width: '90%',
     alignSelf: 'center',
     color: 'black',
-  },
-  pickerContainer: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 4,
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  picker: {
-    height: 40,
-    backgroundColor: '#F2F2F2',
   },
   noteInput: {
     marginBottom: 20,
@@ -66,24 +46,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     backgroundColor: '#F2F2F2',
-    width: '90%', // increase container width to 100%
+    width: '90%',
     alignSelf: 'center',
-    padding: 20, // add padding to the TextInput
-    textAlignVertical: 'top', // align text to top
-    //height: '40%',
-  },
-  noteInputLabel: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  noteInputField: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 4,
-    padding: 10,
-    //height: 100,
-    backgroundColor: '#F2F2F2',
+    padding: 20,
+    textAlignVertical: 'top',
   },
   addItemButton: {
     backgroundColor: '#2196F3',

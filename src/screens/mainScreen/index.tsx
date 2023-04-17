@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
+  Image,
 } from 'react-native';
 import Header from '../../component/header/index';
 import {useSelector} from 'react-redux';
@@ -21,21 +22,7 @@ interface AddTaskProps {
   navigation: any;
 }
 const MainScreen: React.FC<AddTaskProps> = ({navigation}) => {
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  const [tasks, setTasks] = useState<Task[]>([]);
   const task = useSelector((state: RootState) => state.task);
-  console.log(tasks);
-  const handleDeleteTask = (taskId: number) => {
-    setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
-  };
-
-  const handleEditTask = (taskId: number) => {
-    // Handle edit task logic
-  };
-
-  const handleDetailsTask = (taskId: number) => {
-    // Handle details task logic
-  };
 
   return (
     <SafeAreaView style={styles.container}>

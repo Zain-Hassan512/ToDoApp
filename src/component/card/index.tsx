@@ -42,6 +42,7 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
           <View style={styles.container}>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.heading}>{task.title}</Text>
+
               <TouchableOpacity
                 onPress={() => {
                   setShowConfirmationModal(true);
@@ -51,6 +52,7 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
                   style={styles.dltibtn}
                 />
               </TouchableOpacity>
+
               <TouchableOpacity onPress={onPressEdit}>
                 <Image
                   source={require('../../utils/images/edit.png')}

@@ -4,14 +4,23 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#cfcfcf',
-    //alignItems: 'center',
     backgroundColor: '#fff',
-    paddingLeft: 20,
+    flexDirection: 'row',
+    //alignItems: 'center',
+    justifyContent: 'center',
   },
   headerText: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '700',
-    color: 'black',
+    color: '#000000',
+    //color: '#4B5563',
+    textAlign: 'center',
+    marginHorizontal: 5,
+  },
+  icon: {
+    width: 25,
+    height: 25,
+    alignSelf: 'center',
   },
 });
 

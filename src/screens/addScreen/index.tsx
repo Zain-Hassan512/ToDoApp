@@ -76,13 +76,8 @@ const AddTaskScreen = ({
 
   return (
     <>
-      <View style={styles.form}>
-        <View
-          style={{
-            alignContent: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
+      <View style={styles.container}>
+        <View style={styles.innercontainer}>
           <TouchableOpacity
             onPress={() => {
               //@ts-ignore
@@ -90,10 +85,7 @@ const AddTaskScreen = ({
             }}>
             <Image
               source={require('../../utils/images/back.png')}
-              style={{
-                width: 30,
-                height: 30,
-              }}
+              style={styles.backimg}
             />
           </TouchableOpacity>
           <Text style={styles.title}>

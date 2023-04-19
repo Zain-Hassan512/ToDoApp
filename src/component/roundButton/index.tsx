@@ -8,7 +8,8 @@ import {
   Image,
 } from 'react-native';
 import styles from './styles';
-
+import AddSVG from '../../assets/svgs/add-svg';
+import {height, width} from '../../utils/index';
 interface RoundButtonProps {
   onPress: () => void;
 }
@@ -16,10 +17,7 @@ interface RoundButtonProps {
 const RoundButton: FC<RoundButtonProps> = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Image
-        source={require('../../utils/images/add.png')}
-        style={styles.icon}
-      />
+      <AddSVG width={width(15)} height={height(7)} color="white" />
     </TouchableOpacity>
   );
 };

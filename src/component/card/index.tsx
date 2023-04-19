@@ -6,6 +6,9 @@ import DetailsModal from '../detailmodal';
 import ConfirmationModal from '../confrimationmodal';
 import {useDispatch} from 'react-redux';
 import {deleteTask} from '../../store/taskSlice';
+import {Deletesvg, Editsvg} from '../../assets/svgs';
+import {height, width} from '../../utils/index';
+import allColors from '../../utils/color';
 interface TaskCardProps {
   task: Task;
   onPressEdit(): void;
@@ -47,17 +50,23 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
                 onPress={() => {
                   setShowConfirmationModal(true);
                 }}>
-                <Image
-                  source={require('../../utils/images/d.png')}
-                  style={styles.dltibtn}
-                />
+                <View style={styles.dltibtn}>
+                  <Deletesvg
+                    width={width(6)}
+                    height={height(3.3)}
+                    color="red"
+                  />
+                </View>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={onPressEdit}>
-                <Image
-                  source={require('../../utils/images/edit.png')}
-                  style={styles.editbtn}
-                />
+                <View style={styles.editbtn}>
+                  <Editsvg
+                    width={width(6)}
+                    height={height(3.3)}
+                    color={allColors.colors.lightBlue}
+                  />
+                </View>
               </TouchableOpacity>
             </View>
 

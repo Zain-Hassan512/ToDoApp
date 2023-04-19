@@ -1,25 +1,27 @@
 import {StyleSheet} from 'react-native';
+import {height, width} from '../../utils/index';
+import allColors from '../../utils/color';
 const styles = StyleSheet.create({
   header: {
-    paddingVertical: 16,
+    paddingVertical: height(2),
     borderBottomWidth: 1,
-    borderBottomColor: '#cfcfcf',
-    backgroundColor: '#fff',
+    borderBottomColor: allColors.colors.gray85,
+    //backgroundColor: allColors.colors.primary,
     flexDirection: 'row',
-    //alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: allColors.colors.lightPrimary,
   },
   headerText: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#000000',
-    //color: '#4B5563',
+    color: allColors.colors.sepratorclr,
     textAlign: 'center',
-    marginHorizontal: 5,
+    marginHorizontal: width(1),
+    //color: '#e0e0e0',
   },
   icon: {
-    width: 25,
-    height: 25,
+    width: width(8),
+    height: height(4),
     alignSelf: 'center',
   },
 });

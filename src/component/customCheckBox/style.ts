@@ -1,41 +1,41 @@
 import {StyleSheet} from 'react-native';
+import {width, height} from '../../utils';
+import allColors from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: height(2),
   },
   label: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
-    width: '90%',
+    marginBottom: height(0.5),
+    width: width(90),
     alignSelf: 'center',
-    color: 'black',
+    color: allColors.colors.primary,
   },
   checkboxContainer: {
     flexDirection: 'row',
     //flexWrap: 'wrap',
-    width: '90%',
+    width: width(90),
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: height(1),
   },
   checkbox: {
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderColor: allColors.colors.lightPrimary,
     borderRadius: 8,
-    paddingVertical: 6,
-    marginRight: 10,
-    marginBottom: 10,
-    width: '31%',
+    paddingVertical: height(1),
+    marginRight: width(3),
+    marginBottom: height(1),
+    width: width(28),
   },
-  selected: {
-    backgroundColor: 'grey',
-  },
+
   checkboxLabel: {
     fontSize: 16,
     marginLeft: 8,
-    color: '#000000',
+    color: allColors.colors.black,
   },
 });
 export default styles;

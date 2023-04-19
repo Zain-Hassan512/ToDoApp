@@ -1,9 +1,11 @@
 import {StyleSheet} from 'react-native';
+import {height, width} from '../../utils/index';
+import allColors from '../../utils/color';
 const styles = StyleSheet.create({
   viewContainer: {
     alignSelf: 'center',
     alignItems: 'center',
-    width: '100%',
+    //width: width(70),
     backgroundColor: 'red',
     alignContent: 'center',
     justifyContent: 'center',
@@ -11,28 +13,29 @@ const styles = StyleSheet.create({
   modalStyle: {
     alignSelf: 'center',
     alignItems: 'center',
-    width: '100%',
+    width: width(100),
   },
   modalContainer: {
     //backgroundColor: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: allColors.colors.confrimationModalBG,
     borderRadius: 10,
-    padding: 20,
+    padding: width(5),
     //marginHorizontal: 50,
     //marginVertical: 150,
     //height: '30%',
-    width: '70%',
+    width: width(75),
   },
   modalText: {
     fontSize: 18,
-    marginBottom: 20,
-    color: 'white',
+    marginBottom: height(3),
+    color: allColors.colors.white,
   },
   modalButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '70%',
+    width: width(50),
     alignSelf: 'center',
+    color: allColors.colors.lightPrimary,
   },
 });
 

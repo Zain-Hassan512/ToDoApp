@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Modal, StyleSheet, Button} from 'react-native';
 import Task from '../../types/taskType';
 import styles from './style';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 interface DetailsModalProps {
   task: Task;
   visible: boolean;
@@ -38,6 +39,10 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
             {task.priority.toLocaleUpperCase()}
           </Text>
           <View style={styles.modalButtonContainer}>
+            {/* <TouchableOpacity onPress={onDismiss}>
+              <Text>Close</Text>
+            </TouchableOpacity> */}
+
             <Button title="Close" onPress={onDismiss} />
           </View>
         </View>

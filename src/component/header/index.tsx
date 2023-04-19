@@ -2,17 +2,18 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import styles from './styles';
 
+//import {Homesvg} from '../../utils/svgs';
+import {Notesvg} from '../../assets/svgs';
 interface Props {
   title: string;
 }
 const Header: React.FC<Props> = ({title}) => {
   return (
     <View style={styles.header}>
+      <View>
+        <Notesvg width={35} height={35} color="#e0e0e0" />
+      </View>
       <Text style={styles.headerText}>{title}</Text>
-      <Image
-        source={require('../../utils/images/to-do-list.png')}
-        style={styles.icon}
-      />
     </View>
   );
 };

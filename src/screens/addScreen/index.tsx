@@ -11,7 +11,7 @@ import {
   Image,
   KeyboardAvoidingView,
 } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {height, width} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {addTask, editTask} from '../../store/taskSlice';
 import Task from '../../types/taskType';
@@ -19,6 +19,9 @@ import styles from './styles';
 import ScreenNames from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyCheckBoxPicker from '../../component/customCheckBox';
+import {ScreenWrapper} from 'react-native-screen-wrapper';
+import {Backsvg} from '../../assets/svgs';
+import allColors from '../../utils/color';
 
 interface Option {
   label: string;
@@ -75,7 +78,7 @@ const AddTaskScreen = ({
   };
 
   return (
-    <>
+    <ScreenWrapper scrollType="keyboard">
       <View style={styles.container}>
         <View style={styles.innercontainer}>
           <TouchableOpacity
@@ -83,9 +86,10 @@ const AddTaskScreen = ({
               //@ts-ignore
               navigation.navigate(ScreenNames.MAIN);
             }}>
-            <Image
-              source={require('../../utils/images/back.png')}
-              style={styles.backimg}
+            <Backsvg
+              width={width(8)}
+              height={height(4)}
+              color={allColors.colors.sepratorclr}
             />
           </TouchableOpacity>
           <Text style={styles.title}>
@@ -125,7 +129,7 @@ const AddTaskScreen = ({
           </Text>
         </TouchableOpacity>
       </View>
-    </>
+    </ScreenWrapper>
   );
 };
 

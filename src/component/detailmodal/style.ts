@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {height, width} from '../../utils/index';
 import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,

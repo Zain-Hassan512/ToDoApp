@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {width, height} from '../../utils';
 import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
     marginTop: height(2),

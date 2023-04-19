@@ -45,18 +45,19 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 10,
+    marginBottom: height(4),
   },
   topRowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: height(1),
     width: width(85),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   rightIcons: {
     width: width(20),
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
 });
 

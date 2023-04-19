@@ -8,6 +8,8 @@ import Header from '../../component/header/index';
 import {ScreenNames} from '../../route';
 import {RootState} from '../../store/index';
 import styles from './style';
+
+//Main Screen is completed
 interface AddTaskProps {
   navigation: any;
 }

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import styles from './style';
 import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 interface Option {
   label: string;
   value: string;
@@ -41,8 +42,8 @@ const MyCheckBoxPicker: React.FC<MyCheckBoxPickerProps> = ({
               {
                 backgroundColor:
                   selectedValue === option.value
-                    ? allColors.colors.lightPrimary
-                    : allColors.colors.white,
+                    ? AppColors.lightPrimary
+                    : AppColors.white,
               },
             ]}
             onPress={() => handleOptionClick(option.value)}>
@@ -52,8 +53,8 @@ const MyCheckBoxPicker: React.FC<MyCheckBoxPickerProps> = ({
                 {
                   color:
                     selectedValue === option.value
-                      ? allColors.colors.white
-                      : allColors.colors.black,
+                      ? AppColors.white
+                      : AppColors.black,
                 },
               ]}>
               {option.label}

@@ -6,15 +6,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: allColors.colors.detailModalBG,
+    backgroundColor: AppColors.detailModalBG,
   },
   modalContent: {
-    backgroundColor: allColors.colors.white,
+    backgroundColor: AppColors.white,
     padding: width(6),
     borderRadius: 5,
     alignItems: 'center',
     elevation: 5,
-    shadowColor: allColors.colors.black,
+    shadowColor: AppColors.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     marginBottom: height(1),
-    color: allColors.colors.white,
-    backgroundColor: allColors.colors.lightPrimary,
+    color: AppColors.white,
+    backgroundColor: AppColors.lightPrimary,
     width: width(40),
     textAlign: 'center',
     padding: width(2),
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   modalNote: {
     fontSize: 20,
     marginBottom: height(1),
-    color: allColors.colors.darkGray,
+    color: AppColors.darkGray,
     alignSelf: 'flex-start',
     paddingLeft: width(5),
   },
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   modalLine: {
     height: 1,
-    backgroundColor: allColors.colors.lightPrimary,
+    backgroundColor: AppColors.lightPrimary,
     width: width(70),
     marginVertical: height(2),
   },
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     //: 'flex-end',
     marginTop: height(6),
     width: width(65),
-    backgroundColor: allColors.colors.lightPrimary,
+    backgroundColor: AppColors.lightPrimary,
   },
 });
 

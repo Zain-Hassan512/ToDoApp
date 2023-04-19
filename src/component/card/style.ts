@@ -1,27 +1,25 @@
 import {StyleSheet} from 'react-native';
 import {height, width} from '../../utils/index';
-import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   heading: {
-    fontSize: 22,
+    fontSize: width(5.5),
     fontWeight: '600',
-    color: allColors.colors.primary,
-    paddingTop: height(0.4),
+    color: AppColors.primary,
     flex: 1,
-    alignSelf: 'center',
   },
   note: {
-    fontSize: 18,
-    fontWeight: '600',
-    width: width(83),
+    fontSize: 15,
+    fontWeight: '200',
+    width: width(85),
     alignSelf: 'center',
     marginTop: height(1),
-    //color: allColors.colors.gray95,
+    color: AppColors.black,
   },
   modalLine: {
     height: 1.5,
-    backgroundColor: allColors.colors.primary,
-    width: width(80),
+    backgroundColor: AppColors.primary,
+    width: width(85),
     marginVertical: height(2),
     marginTop: height(2),
     alignSelf: 'center',
@@ -33,39 +31,32 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
   },
-  dltibtn: {
-    // width: width(5.2),
-    // height: height(2.7),
-    marginTop: height(0.5),
-    marginRight: width(5),
-  },
-  editbtn: {
-    // width: width(5.2),
-    // height: height(2.7),
-    //right: -255,
-    marginTop: height(0.5),
-    marginRight: width(3),
-  },
   container: {
-    //justifyContent: 'space-between',
     width: width(90),
-    alignSelf: 'center',
-    backgroundColor: allColors.colors.white,
-    marginTop: height(1),
-    borderRadius: 10,
-    elevation: 5,
-    padding: width(2),
-    marginBottom: height(2),
-    shadowColor: allColors.colors.black,
+    backgroundColor: AppColors.white,
+    borderRadius: width(3),
+    margin: width(1),
+    shadowColor: AppColors.black,
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 2,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    borderWidth: 1,
-    borderColor: allColors.colors.primary,
-    //borderColor: '#24a0ed',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 10,
+  },
+  topRowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: height(1),
+    width: width(85),
+    alignSelf: 'center'
+  },
+  rightIcons: {
+    width: width(20),
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
 });
 

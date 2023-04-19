@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     //backgroundColor: 'white',
-    backgroundColor: allColors.colors.confrimationModalBG,
+    backgroundColor: AppColors.confrimationModalBG,
     borderRadius: 10,
     padding: width(5),
     //marginHorizontal: 50,
@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 18,
     marginBottom: height(3),
-    color: allColors.colors.white,
+    color: AppColors.white,
   },
   modalButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: width(50),
     alignSelf: 'center',
-    color: allColors.colors.lightPrimary,
+    color: AppColors.lightPrimary,
   },
 });
 

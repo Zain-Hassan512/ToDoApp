@@ -8,7 +8,7 @@ import {useDispatch} from 'react-redux';
 import {deleteTask} from '../../store/taskSlice';
 import {Deletesvg, Editsvg} from '../../assets/svgs';
 import {height, width} from '../../utils/index';
-import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 interface TaskCardProps {
   task: Task;
   onPressEdit(): void;
@@ -37,49 +37,41 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
   };
 
   return (
-    <>
-      <ScrollView>
-        <TouchableOpacity
-          onPress={() => setShowDetailsModal(true)}
-          activeOpacity={0.9}>
-          <View style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.heading}>{task.title}</Text>
-
-              <TouchableOpacity
-                onPress={() => {
-                  setShowConfirmationModal(true);
-                }}>
-                <View style={styles.dltibtn}>
-                  <Deletesvg
-                    width={width(6)}
-                    height={height(3.3)}
-                    color="red"
-                  />
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={onPressEdit}>
-                <View style={styles.editbtn}>
-                  <Editsvg
-                    width={width(6)}
-                    height={height(3.3)}
-                    color={allColors.colors.lightBlue}
-                  />
-                </View>
-              </TouchableOpacity>
-            </View>
-
-            <Text numberOfLines={3} style={styles.note}>
-              {task.note}
-            </Text>
-            <View style={styles.modalLine} />
-            <Text style={[styles.priority, getPriorityColor(task.priority)]}>
-              {task.priority.toLocaleUpperCase()}
-            </Text>
+    <View>
+      <TouchableOpacity
+        onPress={() => setShowDetailsModal(true)}
+        style={styles.container}
+        activeOpacity={0.9}>
+        <View style={styles.topRowContainer}>
+          <View>
+            <Text style={styles.heading}>{task.title}</Text>
           </View>
-        </TouchableOpacity>
-      </ScrollView>
+          <View style={styles.rightIcons}>
+            <TouchableOpacity
+              onPress={() => {
+                setShowConfirmationModal(true);
+              }}>
+              <Deletesvg width={width(6)} height={height(3.3)} color="red" />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={onPressEdit}>
+              <Editsvg
+                width={width(6)}
+                height={height(3.3)}
+                color={AppColors.lightBlue}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <Text numberOfLines={3} style={styles.note}>
+          {task.note}
+        </Text>
+        <View style={styles.modalLine} />
+        <Text style={[styles.priority, getPriorityColor(task.priority)]}>
+          {task.priority.toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
       <DetailsModal
         task={task}
         visible={showDetailsModal}
@@ -91,7 +83,7 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
         onDelete={handleDeleteConfirmation}
         taskId={task.id}
       />
-    </>
+    </View>
   );
 };
 

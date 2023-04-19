@@ -10,9 +10,7 @@ interface Props {
 const Header: React.FC<Props> = ({title}) => {
   return (
     <View style={styles.header}>
-      <View>
-        <Notesvg width={35} height={35} color="#e0e0e0" />
-      </View>
+      <Notesvg width={35} height={35} color="#e0e0e0" />
       <Text style={styles.headerText}>{title}</Text>
     </View>
   );

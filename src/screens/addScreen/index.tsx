@@ -14,14 +14,14 @@ import {
 import {height, width} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {addTask, editTask} from '../../store/taskSlice';
-import Task from '../../types/taskType';
+import Task, { Priority } from '../../types/taskType';
 import styles from './styles';
 import ScreenNames from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyCheckBoxPicker from '../../component/customCheckBox';
 import {ScreenWrapper} from 'react-native-screen-wrapper';
 import {Backsvg} from '../../assets/svgs';
-import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 
 interface Option {
   label: string;
@@ -44,7 +44,7 @@ const AddTaskScreen = ({
   const {task} = route.params;
   const [title, setTitle] = useState(task?.title ?? '');
   const [note, setNote] = useState(task?.note || '');
-  const [priority, setPriority] = useState<'high' | 'medium' | 'low'>(
+  const [priority, setPriority] = useState<Priority>(
     task?.priority || 'low',
   );
   const dispatch = useDispatch();
@@ -89,7 +89,7 @@ const AddTaskScreen = ({
             <Backsvg
               width={width(8)}
               height={height(4)}
-              color={allColors.colors.sepratorclr}
+              color={AppColors.sepratorclr}
             />
           </TouchableOpacity>
           <Text style={styles.title}>

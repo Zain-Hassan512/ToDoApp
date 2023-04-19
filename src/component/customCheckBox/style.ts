@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     marginBottom: height(0.5),
     width: width(90),
     alignSelf: 'center',
-    color: allColors.colors.primary,
+    color: AppColors.primary,
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: allColors.colors.lightPrimary,
+    borderColor: AppColors.lightPrimary,
     borderRadius: 8,
     paddingVertical: height(1),
     marginRight: width(3),
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   checkboxLabel: {
     fontSize: 16,
     marginLeft: 8,
-    color: allColors.colors.black,
+    color: AppColors.black,
   },
 });
 export default styles;

@@ -1,19 +1,19 @@
 import {StyleSheet} from 'react-native';
 import {height, width} from '../../utils';
 import allColors from '../../utils/color';
+import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: allColors.colors.white,
+    backgroundColor: AppColors.white,
   },
   innercontainer: {
     alignContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    //backgroundColor: allColors.colors.lightBlue,
-    borderBottomColor: allColors.colors.gray85,
+    borderBottomColor: AppColors.gray85,
     borderBottomWidth: 1,
-    backgroundColor: allColors.colors.lightPrimary,
+    backgroundColor: AppColors.lightPrimary,
   },
   backimg: {
     width: width(8),
@@ -24,19 +24,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     alignSelf: 'center',
     padding: width(4),
-    color: allColors.colors.sepratorclr,
+    color: AppColors.sepratorclr,
   },
 
   input: {
     padding: width(2.3),
-    borderColor: allColors.colors.lightPrimary,
+    borderColor: AppColors.lightPrimary,
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: height(2),
-    backgroundColor: allColors.colors.white,
+    backgroundColor: AppColors.white,
     width: width(90),
     alignSelf: 'center',
-    color: allColors.colors.black,
+    color: AppColors.black,
   },
   label: {
     fontSize: 18,
@@ -44,33 +44,29 @@ const styles = StyleSheet.create({
     marginBottom: height(1),
     width: width(90),
     alignSelf: 'center',
-    color: allColors.colors.primary,
+    color: AppColors.primary,
   },
   noteInput: {
     marginBottom: height(3),
-    borderColor: allColors.colors.lightPrimary,
+    borderColor: AppColors.lightPrimary,
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: allColors.colors.white,
+    backgroundColor: AppColors.white,
     width: width(90),
     alignSelf: 'center',
     padding: width(5),
+    color: AppColors.black,
     textAlignVertical: 'top',
   },
   addItemButton: {
-    backgroundColor: allColors.colors.lightPrimary,
+    backgroundColor: AppColors.lightPrimary,
     padding: width(4),
     borderRadius: 4,
-    //margin: 5,
     alignSelf: 'center',
     width: width(90),
-    marginTop: height(28),
-    //bottom: 5,
-    //position: 'absolute',
-    //marginBottom: 50,
   },
   buttonText: {
-    color: allColors.colors.white,
+    color: AppColors.white,
     fontSize: 16,
     textAlign: 'center',
   },

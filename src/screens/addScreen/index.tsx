@@ -14,7 +14,7 @@ import {
 import {height, width} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {addTask, editTask} from '../../store/taskSlice';
-import Task, { Priority } from '../../types/taskType';
+import Task, {Priority} from '../../types/taskType';
 import styles from './styles';
 import ScreenNames from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -25,7 +25,7 @@ import AppColors from '../../utils/color';
 
 interface Option {
   label: string;
-  value: string;
+  value: Priority;
 }
 const priorityOptions: Option[] = [
   {label: 'Low', value: 'low'},
@@ -43,10 +43,8 @@ const AddTaskScreen = ({
 }: NativeStackScreenProps<Params, 'Screen'>) => {
   const {task} = route.params;
   const [title, setTitle] = useState(task?.title ?? '');
-  const [note, setNote] = useState(task?.note || '');
-  const [priority, setPriority] = useState<Priority>(
-    task?.priority || 'low',
-  );
+  const [note, setNote] = useState(task?.note ?? '');
+  const [priority, setPriority] = useState<Priority>(task?.priority ?? 'low');
   const dispatch = useDispatch();
   const handleAddTask = () => {
     const newTask: Task = {
@@ -66,19 +64,16 @@ const AddTaskScreen = ({
     //@ts-ignore
     navigation.navigate(ScreenNames.MAIN);
   };
-  useEffect(() => {
-    if (task) {
-      setTitle(task.title);
-      setNote(task.note);
-      setPriority(task.priority);
-    }
-  }, [task]);
-  const handlePriorityChange = (selectedValue: string) => {
-    setPriority(selectedValue as 'high' | 'medium' | 'low');
+
+  const handlePriorityChange = (selectedValue: Priority) => {
+    setPriority(selectedValue);
   };
 
   return (
-    <ScreenWrapper scrollType="keyboard">
+    <ScreenWrapper
+      scrollType="keyboard"
+      barStyle="light-content"
+      statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
         <View style={styles.innercontainer}>
           <TouchableOpacity
@@ -88,7 +83,7 @@ const AddTaskScreen = ({
             }}>
             <Backsvg
               width={width(8)}
-              height={height(4)}
+              height={width(8)}
               color={AppColors.sepratorclr}
             />
           </TouchableOpacity>
@@ -103,6 +98,7 @@ const AddTaskScreen = ({
             placeholder="Enter Title"
             value={title}
             onChangeText={setTitle}
+            placeholderTextColor={AppColors.gray85}
           />
         </View>
         <MyCheckBoxPicker
@@ -116,10 +112,11 @@ const AddTaskScreen = ({
           <TextInput
             style={styles.noteInput}
             placeholder="Type your notes here..."
+            placeholderTextColor={AppColors.gray85}
             value={note}
             onChangeText={setNote}
             multiline={true}
-            numberOfLines={4}
+            numberOfLines={10}
             returnKeyType="done"
           />
         </View>

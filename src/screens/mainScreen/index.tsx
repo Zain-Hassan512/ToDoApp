@@ -8,6 +8,7 @@ import Header from '../../component/header/index';
 import {ScreenNames} from '../../route';
 import {RootState} from '../../store/index';
 import styles from './style';
+import AppColors from '../../utils/color';
 
 interface AddTaskProps {
   navigation: any;
@@ -16,7 +17,10 @@ const MainScreen: React.FC<AddTaskProps> = ({navigation}) => {
   const task = useSelector((state: RootState) => state.task.tasks);
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper
+      scrollType="none"
+      barStyle="light-content"
+      statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
         <Header title="TODO APP" />
         <FlatList

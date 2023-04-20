@@ -1,34 +1,32 @@
 import {StyleSheet} from 'react-native';
 import {height, width} from '../../utils';
-import allColors from '../../utils/color';
 import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    //To be discussed
+    height: height(100),
     backgroundColor: AppColors.white,
   },
   innercontainer: {
     alignContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomColor: AppColors.gray85,
-    borderBottomWidth: 1,
     backgroundColor: AppColors.lightPrimary,
-  },
-  backimg: {
-    width: width(8),
-    height: height(4),
+    padding: width(2),
   },
   title: {
     fontSize: 22,
     fontWeight: '700',
     alignSelf: 'center',
-    padding: width(4),
     color: AppColors.sepratorclr,
+    width: width(80),
+    textAlign: 'center',
   },
 
   input: {
-    padding: width(2.3),
+    paddingHorizontal: width(1),
+    paddingVertical: height(1),
     borderColor: AppColors.lightPrimary,
     borderWidth: 1,
     borderRadius: 5,
@@ -54,7 +52,8 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.white,
     width: width(90),
     alignSelf: 'center',
-    padding: width(5),
+    paddingHorizontal: width(1),
+    height: height(20),
     color: AppColors.black,
     textAlignVertical: 'top',
   },
@@ -64,6 +63,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignSelf: 'center',
     width: width(90),
+    position: 'absolute',
+    bottom: height(2)
   },
   buttonText: {
     color: AppColors.white,

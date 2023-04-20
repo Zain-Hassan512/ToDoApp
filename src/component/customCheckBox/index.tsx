@@ -3,13 +3,14 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import styles from './style';
 import allColors from '../../utils/color';
 import AppColors from '../../utils/color';
+import { Priority } from '../../types/taskType';
 interface Option {
   label: string;
-  value: string;
+  value: Priority;
 }
 
 interface MyCheckBoxPickerProps {
-  onSelectionChange: (selectedValue: string) => void;
+  onSelectionChange: (selectedValue: Priority) => void;
   options: Option[];
   defaultValue?: string;
 }
@@ -20,10 +21,9 @@ const MyCheckBoxPicker: React.FC<MyCheckBoxPickerProps> = ({
   defaultValue = '',
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
-  const handleOptionClick = (value: string) => {
+  const handleOptionClick = (value: Priority) => {
     if (value === selectedValue) {
       setSelectedValue('');
-      onSelectionChange('');
     } else {
       setSelectedValue(value);
       onSelectionChange(value);

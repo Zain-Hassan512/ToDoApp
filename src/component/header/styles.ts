@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: AppColors.lightPrimary,
+    alignContent: 'center',
+    alignItems: 'center',
   },
   headerText: {
     fontSize: 22,
@@ -16,12 +18,12 @@ const styles = StyleSheet.create({
     color: AppColors.sepratorclr,
     textAlign: 'center',
     alignSelf: 'center',
-    marginLeft: width(1)
+    marginLeft: width(1),
   },
-  icon: {
-    width: width(8),
-    height: width(8),
-    alignSelf: 'center',
+  iconContainer: {
+    position: 'absolute',
+    left: 0,
+    padding: width(2),
   },
 });
 

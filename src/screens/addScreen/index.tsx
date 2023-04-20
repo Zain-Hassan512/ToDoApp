@@ -22,6 +22,7 @@ import MyCheckBoxPicker from '../../component/customCheckBox';
 import {ScreenWrapper} from 'react-native-screen-wrapper';
 import {Backsvg} from '../../assets/svgs';
 import AppColors from '../../utils/color';
+import {Header} from '../../component';
 
 interface Option {
   label: string;
@@ -75,7 +76,7 @@ const AddTaskScreen = ({
       barStyle="light-content"
       statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
-        <View style={styles.innercontainer}>
+        {/* <View style={styles.innercontainer}>
           <TouchableOpacity
             onPress={() => {
               //@ts-ignore
@@ -90,7 +91,8 @@ const AddTaskScreen = ({
           <Text style={styles.title}>
             {task ? 'Edit Task' : 'Add New Task'}
           </Text>
-        </View>
+        </View> */}
+        <Header backIcon={true} task={task} />
         <View style={{marginTop: 20}}>
           <Text style={styles.label}>Title</Text>
           <TextInput

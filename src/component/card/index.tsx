@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
+import React, {useState, useMemo} from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
 import Task from '../../types/taskType';
 import styles from './style';
 import DetailsModal from '../detailmodal';
@@ -23,18 +23,28 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
     setShowConfirmationModal(false);
   };
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'high':
-        return {color: 'red'};
-      case 'medium':
-        return {color: 'yellow'};
-      case 'low':
-        return {color: 'green'};
-      default:
-        return {color: 'black'};
-    }
-  };
+  // const getPriorityColor = (priority: string) => {
+  //   switch (priority) {
+  //     case 'high':
+  //       return {color: 'red'};
+  //     case 'medium':
+  //       return {color: 'yellow'};
+  //     case 'low':
+  //       return {color: 'green'};
+  //     default:
+  //       return {color: 'black'};
+  //   }
+  // };
+
+  const getPriorityColor = useMemo(() => {
+    const priorityColors = {
+      high: {color: 'red'},
+      medium: {color: 'yellow'},
+      low: {color: 'green'},
+    };
+
+    return priorityColors[task.priority];
+  }, [task.priority]);
 
   return (
     <View>
@@ -68,7 +78,7 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
           {task.note}
         </Text>
         <View style={styles.modalLine} />
-        <Text style={[styles.priority, getPriorityColor(task.priority)]}>
+        <Text style={[styles.priority, getPriorityColor]}>
           {task.priority.toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>

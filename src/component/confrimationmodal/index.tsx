@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
+import {Text, View, Button} from 'react-native';
 import styles from './style';
 import Modal from 'react-native-modal';
+import AppColors from '../../utils/color';
 interface ConfirmationModalProps {
   visible: boolean;
   onDismiss: () => void;
@@ -30,8 +31,16 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
             Are you sure you want to delete this task?
           </Text>
           <View style={styles.modalButtonsContainer}>
-            <Button title="Cancel" onPress={onDismiss} />
-            <Button title="Delete" onPress={() => onDelete(taskId)} />
+            <Button
+              color={AppColors.lightPrimary}
+              title="Cancel"
+              onPress={onDismiss}
+            />
+            <Button
+              color={AppColors.lightPrimary}
+              title="Delete"
+              onPress={() => onDelete(taskId)}
+            />
           </View>
         </View>
       </Modal>

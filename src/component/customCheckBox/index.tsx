@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './style';
-import allColors from '../../utils/color';
 import AppColors from '../../utils/color';
-import { Priority } from '../../types/taskType';
+import {Priority} from '../../types/taskType';
 interface Option {
   label: string;
   value: Priority;

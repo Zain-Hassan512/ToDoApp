@@ -39,12 +39,13 @@ const styles = StyleSheet.create({
     shadowColor: AppColors.black,
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 5,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
 
     elevation: 10,
+
     marginBottom: height(4),
   },
   topRowContainer: {

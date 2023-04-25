@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     //width: width(70),
-    backgroundColor: 'red',
+    //backgroundColor: 'red',
     alignContent: 'center',
     justifyContent: 'center',
   },
@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     width: width(100),
+    //backgroundColor: 'red',
+    flex: 1,
   },
   modalContainer: {
     //backgroundColor: 'white',

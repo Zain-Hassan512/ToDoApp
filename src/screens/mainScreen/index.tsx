@@ -9,11 +9,12 @@ import {ScreenNames} from '../../route';
 import {RootState} from '../../store/index';
 import styles from './style';
 import AppColors from '../../utils/color';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootParamsList} from '../../route/routes';
 
-interface AddTaskProps {
-  navigation: any;
-}
-const MainScreen: React.FC<AddTaskProps> = ({navigation}) => {
+const MainScreen = ({
+  navigation,
+}: NativeStackScreenProps<RootParamsList, ScreenNames.MAIN>) => {
   const task = useSelector((state: RootState) => state.task.tasks);
 
   return (

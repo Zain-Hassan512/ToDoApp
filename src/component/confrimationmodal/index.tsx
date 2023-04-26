@@ -6,19 +6,14 @@ import AppColors from '../../utils/color';
 interface ConfirmationModalProps {
   visible: boolean;
   onDismiss: () => void;
-  onDelete: (id: number) => void;
-  taskId: number;
+  onDelete: () => void;
 }
 
 const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   visible,
   onDismiss,
   onDelete,
-  taskId,
 }) => {
-  const handleDelete = () => {
-    onDelete(taskId);
-  };
   return (
     <View style={styles.viewContainer}>
       <Modal
@@ -39,7 +34,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
             <Button
               color={AppColors.lightPrimary}
               title="Delete"
-              onPress={() => onDelete(taskId)}
+              onPress={onDelete}
             />
           </View>
         </View>

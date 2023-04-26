@@ -3,6 +3,7 @@ import {Text, View, Modal, Button} from 'react-native';
 import Task from '../../types/taskType';
 import styles from './style';
 import AppColors from '../../utils/color';
+import {height, width} from '../../utils';
 
 interface DetailsModalProps {
   task: Task;
@@ -34,7 +35,21 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>{task.title}</Text>
           <View style={styles.modalLine} />
-          <Text style={styles.modalNote}>{`>> ${task.note}`}</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'flex-start',
+              alignSelf: 'flex-start',
+            }}>
+            <Text
+              style={{
+                fontSize: 22,
+                color: AppColors.darkGray,
+              }}>
+              {'>>'}
+            </Text>
+            <Text style={styles.modalNote}>{task.note}</Text>
+          </View>
           <View style={styles.modalLine} />
           <Text style={[styles.modalPriority, getPriorityColor(task.priority)]}>
             {task.priority.toLocaleUpperCase()}

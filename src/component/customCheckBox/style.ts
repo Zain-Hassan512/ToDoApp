@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
 
   checkboxLabel: {
     fontSize: 16,
-    marginLeft: 8,
     color: AppColors.black,
   },
 });

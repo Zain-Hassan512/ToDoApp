@@ -16,7 +16,7 @@ import {useDispatch} from 'react-redux';
 import {addTask, editTask} from '../../store/taskSlice';
 import Task, {Priority} from '../../types/taskType';
 import styles from './styles';
-import ScreenNames from '../../route/routes';
+import ScreenNames, {RootParamsList} from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyCheckBoxPicker from '../../component/customCheckBox';
 import {ScreenWrapper} from 'react-native-screen-wrapper';
@@ -33,15 +33,11 @@ const priorityOptions: Option[] = [
   {label: 'Medium', value: 'medium'},
   {label: 'High', value: 'high'},
 ];
-type Params = {
-  Screen: {
-    task?: Task;
-  };
-};
+
 const AddTaskScreen = ({
   navigation,
   route,
-}: NativeStackScreenProps<Params, 'Screen'>) => {
+}: NativeStackScreenProps<RootParamsList, ScreenNames.ADD>) => {
   const {task} = route.params;
   const [title, setTitle] = useState(task?.title ?? '');
   const [note, setNote] = useState(task?.note ?? '');
@@ -76,23 +72,11 @@ const AddTaskScreen = ({
       barStyle="light-content"
       statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
-        {/* <View style={styles.innercontainer}>
-          <TouchableOpacity
-            onPress={() => {
-              //@ts-ignore
-              navigation.navigate(ScreenNames.MAIN);
-            }}>
-            <Backsvg
-              width={width(8)}
-              height={width(8)}
-              color={AppColors.sepratorclr}
-            />
-          </TouchableOpacity>
-          <Text style={styles.title}>
-            {task ? 'Edit Task' : 'Add New Task'}
-          </Text>
-        </View> */}
-        <Header backIcon={true} task={task} />
+        <Header
+          backIcon={true}
+          isTask={task ? true : false}
+          onPressBack={() => navigation.goBack()}
+        />
         <View style={{marginTop: 20}}>
           <Text style={styles.label}>Title</Text>
           <TextInput

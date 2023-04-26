@@ -60,6 +60,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  highPriority: {
+    color: 'red',
+  },
+  mediumPriority: {
+    color: 'yellow',
+  },
+  lowPriority: {
+    color: 'green',
+  },
 });
 
 export default styles;

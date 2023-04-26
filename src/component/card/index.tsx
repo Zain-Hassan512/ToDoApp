@@ -23,19 +23,6 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
     setShowConfirmationModal(false);
   };
 
-  // const getPriorityColor = (priority: string) => {
-  //   switch (priority) {
-  //     case 'high':
-  //       return {color: 'red'};
-  //     case 'medium':
-  //       return {color: 'yellow'};
-  //     case 'low':
-  //       return {color: 'green'};
-  //     default:
-  //       return {color: 'black'};
-  //   }
-  // };
-
   const getPriorityColor = useMemo(() => {
     const priorityColors = {
       high: {color: 'red'},
@@ -44,6 +31,19 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
     };
 
     return priorityColors[task.priority];
+  }, [task.priority]);
+
+  const getPriorityStyles = useMemo(() => {
+    return {
+      priorityStyles: {
+        ...styles.priority,
+        ...(task.priority === 'high'
+          ? styles.highPriority
+          : task.priority === 'medium'
+          ? styles.mediumPriority
+          : styles.lowPriority),
+      },
+    };
   }, [task.priority]);
 
   return (
@@ -78,7 +78,10 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
           {task.note}
         </Text>
         <View style={styles.modalLine} />
-        <Text style={[styles.priority, getPriorityColor]}>
+        {/* <Text style={[styles.priority, getPriorityColor]}>
+          {task.priority.toLocaleUpperCase()}
+        </Text> */}
+        <Text style={getPriorityStyles.priorityStyles}>
           {task.priority.toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
@@ -90,8 +93,7 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
       <ConfirmationModal
         visible={showConfirmationModal}
         onDismiss={() => setShowConfirmationModal(false)}
-        onDelete={handleDeleteConfirmation}
-        taskId={task.id}
+        onDelete={() => handleDeleteConfirmation(task.id)}
       />
     </View>
   );

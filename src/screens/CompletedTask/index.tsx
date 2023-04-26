@@ -1,24 +1,22 @@
 import React from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {ScreenWrapper} from 'react-native-screen-wrapper';
 import {useSelector} from 'react-redux';
-import {RoundButton} from '../../component';
 import TaskCard from '../../component/card';
 import Header from '../../component/header/index';
 import {ScreenNames} from '../../route';
 import {RootState} from '../../store/index';
-import styles from './style';
+import styles from './styles';
 import AppColors from '../../utils/color';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootParamsList} from '../../route/routes';
-import {height, width} from '../../utils';
 
-const MainScreen = ({
+const CompletedTaskScreen = ({
   navigation,
-}: NativeStackScreenProps<RootParamsList, ScreenNames.MAIN>) => {
+}: NativeStackScreenProps<RootParamsList, ScreenNames.COMPLETED>) => {
   const task = useSelector((state: RootState) => state.task.tasks);
-  const uncompletedTasks = useSelector((state: RootState) =>
-    state.task.tasks.filter(task => !task.completed),
+  const completedTasks = useSelector((state: RootState) =>
+    state.task.tasks.filter(task => task.completed),
   );
   return (
     <ScreenWrapper
@@ -26,9 +24,14 @@ const MainScreen = ({
       barStyle="light-content"
       statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
-        <Header title="TODO APP" />
+        <Header
+          backIcon={true}
+          custom={true}
+          title="Completed Tasks"
+          onPressBack={() => navigation.goBack()}
+        />
         <FlatList
-          data={uncompletedTasks}
+          data={completedTasks}
           style={styles.flatlist}
           keyExtractor={item => item.id.toString()}
           ListEmptyComponent={
@@ -49,31 +52,8 @@ const MainScreen = ({
           }}
         />
       </View>
-      <RoundButton
-        onPress={() => {
-          navigation.navigate(ScreenNames.ADD, {});
-        }}
-      />
-      <TouchableOpacity
-        style={{
-          width: width(25),
-          height: width(12),
-          backgroundColor: AppColors.primary,
-          position: 'absolute',
-          bottom: 20,
-          left: 20,
-          borderRadius: 8,
-          justifyContent: 'center',
-        }}
-        onPress={() => {
-          navigation.navigate(ScreenNames.COMPLETED);
-        }}>
-        <Text style={{color: 'white', textAlign: 'center', fontSize: width(4)}}>
-          Completed Tasks
-        </Text>
-      </TouchableOpacity>
     </ScreenWrapper>
   );
 };
 
-export default MainScreen;
+export default CompletedTaskScreen;

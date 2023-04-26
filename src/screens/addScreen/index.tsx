@@ -49,6 +49,7 @@ const AddTaskScreen = ({
       title,
       note,
       priority,
+      completed: false,
     };
     if (task) {
       dispatch(editTask(newTask));
@@ -75,6 +76,7 @@ const AddTaskScreen = ({
         <Header
           backIcon={true}
           isTask={task ? true : false}
+          custom={false}
           onPressBack={() => navigation.goBack()}
         />
         <View style={{marginTop: 20}}>

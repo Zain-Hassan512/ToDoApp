@@ -25,9 +25,16 @@ export const taskSlice = createSlice({
     deleteTask: (state, action: PayloadAction<number>) => {
       state.tasks = state.tasks.filter(t => t.id !== action.payload);
     },
+    markTaskCompleted: (state, action: PayloadAction<number>) => {
+      const taskIndex = state.tasks.findIndex(t => t.id === action.payload);
+      if (taskIndex !== -1) {
+        state.tasks[taskIndex].completed = true;
+      }
+    },
   },
 });
 
-export const {addTask, editTask, deleteTask} = taskSlice.actions;
+export const {addTask, editTask, deleteTask, markTaskCompleted} =
+  taskSlice.actions;
 
 export default taskSlice.reducer;

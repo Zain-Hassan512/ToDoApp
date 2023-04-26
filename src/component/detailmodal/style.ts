@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     width: width(80),
+    maxHeight: height(70),
   },
   modalTitle: {
     fontSize: 22,
@@ -59,6 +60,15 @@ const styles = StyleSheet.create({
     marginTop: height(6),
     width: width(65),
     backgroundColor: AppColors.lightPrimary,
+  },
+  highPriority: {
+    color: 'red',
+  },
+  mediumPriority: {
+    color: 'yellow',
+  },
+  lowPriority: {
+    color: 'green',
   },
 });
 

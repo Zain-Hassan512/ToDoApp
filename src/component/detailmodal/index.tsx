@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View, Modal, Button} from 'react-native';
+import React, {useMemo} from 'react';
+import {Text, View, Modal, Button, ScrollView} from 'react-native';
 import Task from '../../types/taskType';
 import styles from './style';
 import AppColors from '../../utils/color';
@@ -16,18 +16,18 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
   visible,
   onDismiss,
 }) => {
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'high':
-        return {color: 'red'};
-      case 'medium':
-        return {color: 'yellow'};
-      case 'low':
-        return {color: 'green'};
-      default:
-        return {color: 'black'};
-    }
-  };
+  const getPriorityStyles = useMemo(() => {
+    return {
+      priorityStyles: {
+        ...styles.modalPriority,
+        ...(task.priority === 'high'
+          ? styles.highPriority
+          : task.priority === 'medium'
+          ? styles.mediumPriority
+          : styles.lowPriority),
+      },
+    };
+  }, [task.priority]);
 
   return (
     <Modal visible={visible} onRequestClose={onDismiss} transparent={true}>
@@ -35,6 +35,7 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>{task.title}</Text>
           <View style={styles.modalLine} />
+          {/* <ScrollView> */}
           <View
             style={{
               flexDirection: 'row',
@@ -50,8 +51,9 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
             </Text>
             <Text style={styles.modalNote}>{task.note}</Text>
           </View>
+          {/* </ScrollView> */}
           <View style={styles.modalLine} />
-          <Text style={[styles.modalPriority, getPriorityColor(task.priority)]}>
+          <Text style={getPriorityStyles.priorityStyles}>
             {task.priority.toLocaleUpperCase()}
           </Text>
           <View style={styles.modalButtonContainer}>

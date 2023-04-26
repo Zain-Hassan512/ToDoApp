@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   rightIcons: {
-    width: width(20),
+    width: width(30),
     flexDirection: 'row',
     justifyContent: 'space-around',
   },

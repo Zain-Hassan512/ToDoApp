@@ -3,6 +3,7 @@ interface Task {
   title: string;
   note: string;
   priority: Priority;
+  completed: boolean;
 }
 
 export default Task;

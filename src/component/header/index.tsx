@@ -14,12 +14,14 @@ interface Props {
   backIcon?: Boolean;
   isTask?: boolean;
   onPressBack?(): void;
+  custom?: boolean;
 }
 const Header: React.FC<Props> = ({
   title,
   backIcon = false,
   isTask = false,
   onPressBack,
+  custom = false,
 }) => {
   return backIcon ? (
     <View style={styles.header}>
@@ -30,9 +32,13 @@ const Header: React.FC<Props> = ({
           color={AppColors.sepratorclr}
         />
       </TouchableOpacity>
-      <Text style={styles.headerText}>
-        {isTask ? 'Edit Task' : 'Add New Task'}
-      </Text>
+      {!custom ? (
+        <Text style={styles.headerText}>
+          {isTask ? 'Edit Task' : 'Add New Task'}
+        </Text>
+      ) : (
+        <Text style={styles.headerText}>{title}</Text>
+      )}
     </View>
   ) : (
     <View style={styles.header}>

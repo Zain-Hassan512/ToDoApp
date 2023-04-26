@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ScreenNames, {RootParamsList} from './routes';
-import {AddTaskScreen, MainScreen} from '../screens';
+import {AddTaskScreen, CompletedTaskScreen, MainScreen} from '../screens';
 //import MainScreen from '../screens/mainScreen';
 //import AddTaskScreen from '../screens/addScreen';
 
@@ -20,6 +20,10 @@ const Routes = () => {
         }}>
         <Stack.Screen name={ScreenNames.MAIN} component={MainScreen} />
         <Stack.Screen name={ScreenNames.ADD} component={AddTaskScreen} />
+        <Stack.Screen
+          name={ScreenNames.COMPLETED}
+          component={CompletedTaskScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

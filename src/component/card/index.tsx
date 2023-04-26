@@ -5,16 +5,21 @@ import styles from './style';
 import DetailsModal from '../detailmodal';
 import ConfirmationModal from '../confrimationmodal';
 import {useDispatch} from 'react-redux';
-import {deleteTask} from '../../store/taskSlice';
-import {Deletesvg, Editsvg} from '../../assets/svgs';
+import {deleteTask, markTaskCompleted} from '../../store/taskSlice';
+import {Deletesvg, Donesvg, Editsvg} from '../../assets/svgs';
 import {height, width} from '../../utils/index';
 import AppColors from '../../utils/color';
 interface TaskCardProps {
   task: Task;
   onPressEdit(): void;
+  pending?: boolean;
 }
 
-const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
+const TaskCard: React.FC<TaskCardProps> = ({
+  task,
+  onPressEdit,
+  pending = false,
+}) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const dispatch = useDispatch();
@@ -22,7 +27,10 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
     dispatch(deleteTask(id));
     setShowConfirmationModal(false);
   };
-
+  const handleTaskDone = (id: number) => {
+    dispatch(markTaskCompleted(id));
+    console.log(task.completed);
+  };
   const getPriorityColor = useMemo(() => {
     const priorityColors = {
       high: {color: 'red'},
@@ -57,19 +65,26 @@ const TaskCard: React.FC<TaskCardProps> = ({task, onPressEdit}) => {
             <Text style={styles.heading}>{task.title}</Text>
           </View>
           <View style={styles.rightIcons}>
+            {!pending && (
+              <>
+                <TouchableOpacity onPress={() => handleTaskDone(task.id)}>
+                  <Donesvg width={width(7)} height={width(7)} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={onPressEdit}>
+                  <Editsvg
+                    width={width(6)}
+                    height={height(3.3)}
+                    color={AppColors.lightBlue}
+                  />
+                </TouchableOpacity>
+              </>
+            )}
             <TouchableOpacity
               onPress={() => {
                 setShowConfirmationModal(true);
               }}>
               <Deletesvg width={width(6)} height={height(3.3)} color="red" />
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={onPressEdit}>
-              <Editsvg
-                width={width(6)}
-                height={height(3.3)}
-                color={AppColors.lightBlue}
-              />
             </TouchableOpacity>
           </View>
         </View>

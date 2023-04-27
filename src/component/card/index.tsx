@@ -29,7 +29,6 @@ const TaskCard: React.FC<TaskCardProps> = ({
   };
   const handleTaskDone = (id: number) => {
     dispatch(markTaskCompleted(id));
-    console.log(task.completed);
   };
   const getPriorityColor = useMemo(() => {
     const priorityColors = {

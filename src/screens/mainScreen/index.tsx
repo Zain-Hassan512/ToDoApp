@@ -16,18 +16,22 @@ import {height, width} from '../../utils';
 const MainScreen = ({
   navigation,
 }: NativeStackScreenProps<RootParamsList, ScreenNames.MAIN>) => {
-
   const uncompletedTasks = useSelector((state: RootState) =>
     state.task.tasks.filter(task => !task.completed),
   );
-  
+
   return (
     <ScreenWrapper
       scrollType="none"
       barStyle="light-content"
       statusBarColor={AppColors.lightPrimary}>
       <View style={styles.container}>
-        <Header title="TODO APP" />
+        <Header
+          title="TODO APP"
+          onPressHistory={() => {
+            navigation.navigate(ScreenNames.COMPLETED);
+          }}
+        />
         <FlatList
           data={uncompletedTasks}
           style={styles.flatlist}
@@ -55,24 +59,6 @@ const MainScreen = ({
           navigation.navigate(ScreenNames.ADD, {});
         }}
       />
-      <TouchableOpacity
-        style={{
-          width: width(25),
-          height: width(12),
-          backgroundColor: AppColors.primary,
-          position: 'absolute',
-          bottom: 20,
-          left: 20,
-          borderRadius: 8,
-          justifyContent: 'center',
-        }}
-        onPress={() => {
-          navigation.navigate(ScreenNames.COMPLETED);
-        }}>
-        <Text style={{color: 'white', textAlign: 'center', fontSize: width(4)}}>
-          Completed Tasks
-        </Text>
-      </TouchableOpacity>
     </ScreenWrapper>
   );
 };

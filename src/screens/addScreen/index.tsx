@@ -43,7 +43,7 @@ const AddTaskScreen = ({
   const [note, setNote] = useState(task?.note ?? '');
   const [priority, setPriority] = useState<Priority>(task?.priority ?? 'low');
   const dispatch = useDispatch();
-  
+
   const handleAddTask = () => {
     const newTask: Task = {
       id: task?.id || Date.now(),

@@ -4,20 +4,12 @@ import {height, width} from '../../utils/index';
 const styles = StyleSheet.create({
   header: {
     paddingVertical: height(2),
-    borderBottomWidth: 1,
-    borderBottomColor: AppColors.gray85,
-    flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: AppColors.lightPrimary,
-    alignContent: 'center',
-    alignItems: 'center',
   },
   headerText: {
-    fontSize: 22,
+    fontSize: width(5.5),
     fontWeight: '700',
     color: AppColors.sepratorclr,
-    textAlign: 'center',
-    alignSelf: 'center',
     marginLeft: width(1),
   },
   iconContainer: {
@@ -27,10 +19,23 @@ const styles = StyleSheet.create({
   },
   historyicon: {
     width: width(10),
+    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
   },
   innerContainer: {
     flexDirection: 'row',
-    width: width(80),
+  },
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: width(90),
+    alignSelf: 'center',
+  },
+  backIconContainer: {
+    paddingVertical: height(2),
+    backgroundColor: AppColors.lightPrimary,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

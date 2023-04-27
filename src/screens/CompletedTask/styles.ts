@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     color: AppColors.black,
     fontSize: width(5),
     borderBottomColor: AppColors.black,
-    borderBottomWidth: width(0.2),
+    borderBottomWidth: width(0.4),
   },
 });
 export default styles;

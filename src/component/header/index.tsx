@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({
   onPressHistory,
 }) => {
   return backIcon ? (
-    <View style={styles.header}>
+    <View style={styles.backIconContainer}>
       <TouchableOpacity onPress={onPressBack} style={styles.iconContainer}>
         <Backsvg
           width={width(8)}
@@ -34,13 +34,14 @@ const Header: React.FC<Props> = ({
     </View>
   ) : (
     <View style={styles.header}>
-      <View style={styles.innerContainer}>
-        <Notesvg width={35} height={35} color="#e0e0e0" />
-        <Text style={styles.headerText}>{title}</Text>
-      </View>
-      <View style={styles.historyicon}>
-        <TouchableOpacity onPress={onPressHistory}>
-          <HistorySVG width={30} height={30} color={AppColors.sepratorclr} />
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          <Notesvg width={30} height={30} color={AppColors.sepratorclr} />
+          <Text style={styles.headerText}>{title}</Text>
+        </View>
+
+        <TouchableOpacity style={styles.historyicon} onPress={onPressHistory}>
+          <HistorySVG width={25} height={25} color={AppColors.sepratorclr} />
         </TouchableOpacity>
       </View>
     </View>

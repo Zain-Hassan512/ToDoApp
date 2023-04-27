@@ -25,6 +25,13 @@ const styles = StyleSheet.create({
     left: 0,
     padding: width(2),
   },
+  historyicon: {
+    width: width(10),
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    width: width(80),
+  },
 });
 
 export default styles;

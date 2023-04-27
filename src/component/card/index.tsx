@@ -67,11 +67,13 @@ const TaskCard: React.FC<TaskCardProps> = ({
           <View style={styles.rightIcons}>
             {!pending && (
               <>
-                <TouchableOpacity onPress={() => handleTaskDone(task.id)}>
+                <TouchableOpacity
+                  style={styles.icon}
+                  onPress={() => handleTaskDone(task.id)}>
                   <Donesvg width={width(7)} height={width(7)} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={onPressEdit}>
+                <TouchableOpacity style={styles.icon} onPress={onPressEdit}>
                   <Editsvg
                     width={width(6)}
                     height={height(3.3)}
@@ -81,6 +83,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
               </>
             )}
             <TouchableOpacity
+              style={styles.icon}
               onPress={() => {
                 setShowConfirmationModal(true);
               }}>

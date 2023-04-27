@@ -14,10 +14,11 @@ import {RootParamsList} from '../../route/routes';
 const CompletedTaskScreen = ({
   navigation,
 }: NativeStackScreenProps<RootParamsList, ScreenNames.COMPLETED>) => {
-  const task = useSelector((state: RootState) => state.task.tasks);
+
   const completedTasks = useSelector((state: RootState) =>
     state.task.tasks.filter(task => task.completed),
   );
+  
   return (
     <ScreenWrapper
       scrollType="none"
@@ -26,8 +27,7 @@ const CompletedTaskScreen = ({
       <View style={styles.container}>
         <Header
           backIcon={true}
-          custom={true}
-          title="Completed Tasks"
+          title="History"
           onPressBack={() => navigation.goBack()}
         />
         <FlatList
@@ -36,7 +36,7 @@ const CompletedTaskScreen = ({
           keyExtractor={item => item.id.toString()}
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
-              <Text style={styles.emptyText}>No Tasks to show</Text>
+              <Text style={styles.emptyText}>No History to show</Text>
             </View>
           }
           renderItem={({item}) => {

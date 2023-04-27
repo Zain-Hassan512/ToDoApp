@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   rightIcons: {
     width: width(30),
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
   },
   highPriority: {
     color: 'red',
@@ -69,6 +69,9 @@ const styles = StyleSheet.create({
   lowPriority: {
     color: 'green',
   },
+  icon:{
+    paddingHorizontal: width(2)
+  }
 });
 
 export default styles;

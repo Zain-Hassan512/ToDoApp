@@ -16,10 +16,11 @@ import {height, width} from '../../utils';
 const MainScreen = ({
   navigation,
 }: NativeStackScreenProps<RootParamsList, ScreenNames.MAIN>) => {
-  const task = useSelector((state: RootState) => state.task.tasks);
+
   const uncompletedTasks = useSelector((state: RootState) =>
     state.task.tasks.filter(task => !task.completed),
   );
+  
   return (
     <ScreenWrapper
       scrollType="none"

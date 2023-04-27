@@ -43,6 +43,7 @@ const AddTaskScreen = ({
   const [note, setNote] = useState(task?.note ?? '');
   const [priority, setPriority] = useState<Priority>(task?.priority ?? 'low');
   const dispatch = useDispatch();
+  
   const handleAddTask = () => {
     const newTask: Task = {
       id: task?.id || Date.now(),
@@ -75,8 +76,7 @@ const AddTaskScreen = ({
       <View style={styles.container}>
         <Header
           backIcon={true}
-          isTask={task ? true : false}
-          custom={false}
+          title={task ? 'Edit Task' : 'Add Task'}
           onPressBack={() => navigation.goBack()}
         />
         <View style={{marginTop: 20}}>

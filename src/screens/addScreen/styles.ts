@@ -45,14 +45,7 @@ const styles = StyleSheet.create({
     color: AppColors.primary,
   },
   noteInput: {
-    marginBottom: height(3),
-    borderColor: AppColors.lightPrimary,
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: AppColors.white,
-    width: width(90),
     alignSelf: 'center',
-    paddingHorizontal: width(1),
     height: height(20),
     color: AppColors.black,
     textAlignVertical: 'top',
@@ -64,7 +57,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: width(90),
     position: 'absolute',
-    bottom: height(2)
+    bottom: height(2),
   },
   buttonText: {
     color: AppColors.white,

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 20,
     right: 20,
-    backgroundColor: AppColors.primary,
+    backgroundColor: AppColors.lightPrimary,
     borderRadius: 50,
     width: width(12.5),
     height: width(12.5),

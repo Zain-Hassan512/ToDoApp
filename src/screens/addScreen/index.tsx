@@ -1,16 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-  Button,
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ScrollView,
-  Image,
-  KeyboardAvoidingView,
-} from 'react-native';
+import React, {useState} from 'react';
+import {Text, TextInput, View, TouchableOpacity} from 'react-native';
 import {height, width} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {addTask, editTask} from '../../store/taskSlice';
@@ -20,9 +9,11 @@ import ScreenNames, {RootParamsList} from '../../route/routes';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import MyCheckBoxPicker from '../../component/customCheckBox';
 import {ScreenWrapper} from 'react-native-screen-wrapper';
-import {Backsvg} from '../../assets/svgs';
 import AppColors from '../../utils/color';
-import {Header} from '../../component';
+import {Header, Input} from '../../component';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {TaskFormValidation} from './utils';
 
 interface Option {
   label: string;
@@ -44,11 +35,11 @@ const AddTaskScreen = ({
   const [priority, setPriority] = useState<Priority>(task?.priority ?? 'low');
   const dispatch = useDispatch();
 
-  const handleAddTask = () => {
+  const handleAddTask = (values: {title: string; note: string}) => {
     const newTask: Task = {
       id: task?.id || Date.now(),
-      title,
-      note,
+      title: values.title,
+      note: values.note,
       priority,
       completed: false,
     };
@@ -68,6 +59,18 @@ const AddTaskScreen = ({
     setPriority(selectedValue);
   };
 
+  const {
+    control,
+    handleSubmit,
+    formState: {isValid},
+  } = useForm({
+    mode: 'all',
+    defaultValues: {
+      title: task?.title ?? '',
+      note: task?.note ?? '',
+    },
+    resolver: yupResolver(TaskFormValidation),
+  });
   return (
     <ScreenWrapper
       scrollType="keyboard"
@@ -81,13 +84,14 @@ const AddTaskScreen = ({
         />
         <View style={{marginTop: 20}}>
           <Text style={styles.label}>Title</Text>
-          <TextInput
+          {/* <TextInput
             style={styles.input}
             placeholder="Enter Title"
             value={title}
             onChangeText={setTitle}
             placeholderTextColor={AppColors.gray85}
-          />
+          /> */}
+          <Input control={control} name="title" placeholder="Enter Title" />
         </View>
         <MyCheckBoxPicker
           options={priorityOptions}
@@ -95,9 +99,9 @@ const AddTaskScreen = ({
           defaultValue={priority}
         />
 
-        <View style={{marginTop: 20}}>
+        <View style={{}}>
           <Text style={styles.label}>Note</Text>
-          <TextInput
+          {/* <TextInput
             style={styles.noteInput}
             placeholder="Type your notes here..."
             placeholderTextColor={AppColors.gray85}
@@ -106,9 +110,19 @@ const AddTaskScreen = ({
             multiline={true}
             numberOfLines={10}
             returnKeyType="done"
+          /> */}
+          <Input
+            control={control}
+            name="note"
+            placeholder="Enter Title"
+            multilines={true}
+            textinputstyle={styles.noteInput}
           />
         </View>
-        <TouchableOpacity style={styles.addItemButton} onPress={handleAddTask}>
+        <TouchableOpacity
+          style={styles.addItemButton}
+          onPress={handleSubmit(handleAddTask)}
+          disabled={!isValid}>
           <Text style={styles.buttonText}>
             {task ? 'Save Changes' : 'Add Task'}
           </Text>

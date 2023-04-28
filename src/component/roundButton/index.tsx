@@ -10,6 +10,7 @@ import {
 import styles from './styles';
 import AddSVG from '../../assets/svgs/add-svg';
 import {height, width} from '../../utils/index';
+import AppColors from '../../utils/color';
 interface RoundButtonProps {
   onPress: () => void;
 }
@@ -17,7 +18,11 @@ interface RoundButtonProps {
 const RoundButton: FC<RoundButtonProps> = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <AddSVG width={width(15)} height={width(15)} color="white" />
+      <AddSVG
+        width={width(15)}
+        height={width(15)}
+        color={AppColors.sepratorclr}
+      />
     </TouchableOpacity>
   );
 };

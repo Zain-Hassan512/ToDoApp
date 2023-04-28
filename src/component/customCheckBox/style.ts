@@ -5,6 +5,7 @@ import AppColors from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
     marginTop: height(2),
+    marginBottom: 20,
   },
   label: {
     fontSize: 18,

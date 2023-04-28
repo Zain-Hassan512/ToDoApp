@@ -37,6 +37,8 @@ const Input: React.FC<Props> = ({
             placeholder={placeholder}
             placeholderTextColor={AppColors.gray85}
             multiline={multilines}
+            outlineColor={AppColors.lightPrimary}
+            activeOutlineColor={AppColors.lightPrimary}
           />
           {error && (
             <>

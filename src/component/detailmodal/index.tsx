@@ -35,23 +35,25 @@ const DetailsModal: React.FC<DetailsModalProps> = ({
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>{task.title}</Text>
           <View style={styles.modalLine} />
-          {/* <ScrollView> */}
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'flex-start',
-              alignSelf: 'flex-start',
-            }}>
-            <Text
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{width: width(70)}}>
+            <View
               style={{
-                fontSize: 22,
-                color: AppColors.darkGray,
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                alignSelf: 'flex-start',
               }}>
-              {'>>'}
-            </Text>
-            <Text style={styles.modalNote}>{task.note}</Text>
-          </View>
-          {/* </ScrollView> */}
+              <Text
+                style={{
+                  fontSize: 22,
+                  color: AppColors.darkGray,
+                }}>
+                {'>>'}
+              </Text>
+              <Text style={styles.modalNote}>{task.note}</Text>
+            </View>
+          </ScrollView>
           <View style={styles.modalLine} />
           <Text style={getPriorityStyles.priorityStyles}>
             {task.priority.toLocaleUpperCase()}
